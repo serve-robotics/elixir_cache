@@ -116,6 +116,9 @@ defmodule Cache.ConCache do
   @spec get(atom, atom | String.t(), Keyword.t()) :: ErrorMessage.t_res(any)
   def get(cache_name, key, _opts \\ []) do
     {:ok, ConCache.get(cache_name, key)}
+  rescue
+    exception ->
+      {:error, ErrorMessage.internal_server_error(Exception.message(exception), %{cache: cache_name, key: key})}
   end
 
   @impl Cache
