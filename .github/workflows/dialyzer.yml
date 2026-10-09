@@ -2,6 +2,9 @@ name: Dialyzer
 
 on: push
 
+permissions:
+  contents: read
+
 jobs:
   Dialyzer:
     runs-on: ubuntu-latest

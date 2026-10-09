@@ -2,6 +2,9 @@ name: Credo
 
 on: push
 
+permissions:
+  contents: read
+
 jobs:
   Credo:
     runs-on: ubuntu-latest
